@@ -27,7 +27,7 @@ class App extends React.Component{
                 <option value="violet">Violet</option>
             </select><br/>
             <br/>
-            <Button ref={this.buttonElement}>Slapp like now ! (or I will call the police)</Button>
+            <Button ref={this.buttonElement}>Slapp like now !</Button>
         </div>
       );
     }
