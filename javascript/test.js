@@ -184,10 +184,11 @@ describe('La fonction puissance4', () => {
 
   test('doit vérifier quand aucun joueur ne gagne', () => {
     expect(puissance4(
-     [[ 0, 1, 0, 0, 0 ],
-            [ 2, 2, 2, 0, 0 ],
-            [ 2, 2, 1, 1, 2 ],
-            [ 2, 2, 1, 1, 2 ]]
-      )).toEqual(0);
+        [[ 0, 1, 0, 0, 0 ],
+          [ 2, 2, 2, 0, 0 ],
+          [ 2, 2, 1, 1, 2 ],
+          [ 2, 2, 1, 1, 2 ]]
+    )).toEqual(0);
   });
+
 });

@@ -1,27 +1,29 @@
 import React from "react";
-import './Button.css';
+import './Button.scss';
 
 class Button extends React.Component {
 
   constructor(props) {
     super(props);
-    // ...
+    this.state = {
+      theme: 'theme',
+      toggled: false
+    }
   }
 
-  handleClick() {
-    // ...
+
+  switchTheme(theme) {
+    this.setState({ theme })
   }
 
   render() {
     return (
-      <button
+      <a
+          className={"btn btn-" + this.state.theme}
          data-testid="button"
-         { /*
-            A remplir
-         */ }
       >
       {this.props.children ? this.props.children : "Add text!"}
-      </button>);
+      </a>);
   }
 
 }

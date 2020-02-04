@@ -1,0 +1,54 @@
+//colors
+$color-theme-first: #C1772D;
+$color-theme-second: #18133a;
+
+$color-yellow-first: #eada74;
+$color-yellow-second: #f1d423;
+
+$color-green-first: #00a159;
+$color-green-second: #007a49;
+
+$color-orange-first: #fcab1b;
+$color-orange-second: #ee8415;
+
+$color-violet-first: #5040a2;
+$color-violet-second: #351b76;
+
+$color-blue-first: #6becee;
+$color-blue-second: #14d1ee;
+
+$transition-easing: cubic-bezier(.42, 0, .11, .98);
+$scroll-moove-transitions: none;
+
+
+.btn {
+  color: #fff !important;
+  text-decoration: none;
+  padding: 15px 25px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  border-radius: 5px;
+  transition: all .3s;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+}
+@mixin btn-dep($dep, $color1, $color2) {
+  .btn-#{$dep} {
+    background: $color1;
+    background: linear-gradient(-110deg, $color2 30%, $color1 70%);
+    background-size: 200%;
+    background-position: right;
+    &:hover {
+      background-position: left;
+    }
+  }
+}
+
+@include btn-dep ('theme', $color-theme-first, $color-theme-second)
+@include btn-dep ('yellow', $color-yellow-first, $color-yellow-second)
+@include btn-dep ('green', $color-green-first, $color-green-second)
+@include btn-dep ('orange', $color-orange-first, $color-orange-second)
+@include btn-dep ('violet', $color-violet-first, $color-violet-second)
+@include btn-dep ('blue', $color-blue-first, $color-blue-second)
