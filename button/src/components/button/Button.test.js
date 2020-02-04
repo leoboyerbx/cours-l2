@@ -33,19 +33,21 @@ it('renders without crashing', () => {
   );
 });
 
-it("changes CSS class when we click on it", () => {
+it("changes CSS class on click", () => {
   act( () => {
     render(<Button></Button>, container);
   });
   const button = document.querySelector("[data-testid='button']");
-  expect(button.className).toBe(".untoggled");
+  expect(button.classList.contains('untoggled')).toBe(true);
+  expect(button.classList.contains('toggled')).toBe(false);
   
   act( () => {
     button.dispatchEvent(
       new MouseEvent("click", { bubbles: true })
     );
   });
-  expect(button.className).toBe(".toggled");
+  expect(button.classList.contains('untoggled')).toBe(false);
+  expect(button.classList.contains('toggled')).toBe(true);
 });
 
 it("corresponds to what we saw before", () => {

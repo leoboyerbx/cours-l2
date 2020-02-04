@@ -33,6 +33,7 @@ $scroll-moove-transitions: none;
   white-space: nowrap;
   cursor: pointer;
   display: inline-block;
+  border: none;
 }
 @mixin btn-dep($dep, $color1, $color2) {
   .btn-#{$dep} {
@@ -46,9 +47,16 @@ $scroll-moove-transitions: none;
   }
 }
 
-@include btn-dep ('theme', $color-theme-first, $color-theme-second)
-@include btn-dep ('yellow', $color-yellow-first, $color-yellow-second)
-@include btn-dep ('green', $color-green-first, $color-green-second)
-@include btn-dep ('orange', $color-orange-first, $color-orange-second)
-@include btn-dep ('violet', $color-violet-first, $color-violet-second)
-@include btn-dep ('blue', $color-blue-first, $color-blue-second)
+@include btn-dep ('theme', $color-theme-first, $color-theme-second);
+@include btn-dep ('yellow', $color-yellow-first, $color-yellow-second);
+@include btn-dep ('green', $color-green-first, $color-green-second);
+@include btn-dep ('orange', $color-orange-first, $color-orange-second);
+@include btn-dep ('violet', $color-violet-first, $color-violet-second);
+@include btn-dep ('blue', $color-blue-first, $color-blue-second);
+
+.toggled {
+  transform: scale(1.2);
+}
+.untoggled {
+  transform: scale(1);
+}

@@ -11,6 +11,9 @@ class Button extends React.Component {
     }
   }
 
+  handleClick() {
+    this.setState({ toggled: !this.state.toggled })
+  }
 
   switchTheme(theme) {
     this.setState({ theme })
@@ -18,12 +21,13 @@ class Button extends React.Component {
 
   render() {
     return (
-      <a
-          className={"btn btn-" + this.state.theme}
+      <button
+          className={"btn btn-" + this.state.theme + " " + (this.state.toggled ? "toggled" : "untoggled" ) }
          data-testid="button"
+         onClick={ this.handleClick.bind(this) }
       >
       {this.props.children ? this.props.children : "Add text!"}
-      </a>);
+      </button>);
   }
 
 }

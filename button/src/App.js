@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Button from "./components/button/Button";
 
@@ -19,7 +18,7 @@ class App extends React.Component{
         <div className="App">
             <label htmlFor="theme-select">Choose a color:</label>
             <br/>
-            <select onChange={this.handleThemeChange} name="themes" id="theme-select">
+            <select onChange={this.handleThemeChange} value="theme" name="themes" id="theme-select">
                 <option value="theme">Default</option>
                 <option value="yellow">Yellow</option>
                 <option value="green">Green</option>
