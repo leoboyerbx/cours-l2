@@ -2,5 +2,14 @@
   "name": "javascript",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "description": "Quelques rappels de ES6...",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "jest": "^25.1.0"
+  }
 }

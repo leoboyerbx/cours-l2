@@ -6,9 +6,9 @@ jobs:
       - image: circleci/node:10.16.3
     steps:
       - checkout
-#      - run:
-#          name: test javascript exercices
-#          command: yarn global add jest && cd javascript && ~/.yarn/bin/jest javascript/test.js && cd ..
+      - run:
+          name: test javascript exercices
+          command: yarn global add jest && cd javascript && ~/.yarn/bin/jest javascript/test.js && cd ..
 #      - run:
 #          name: test button
 #          command: cd button && yarn install & yarn test && cd ..
