@@ -36,13 +36,14 @@ class Hangman extends Component {
       console.log(answer)
       this.setState({
         answer,
-        guessedWord: (() => { // On génère un tableau de chaînes vides de la même taille que le mot
-          const array = []
-          for(let i = 0; i < answer.length; i++) {
-            array.push('')
-          }
-          return array
-        })()
+        // guessedWord: (() => { // On génère un tableau de chaînes vides de la même taille que le mot
+        //   // note: on pourrait juste faire un tableau vide
+        //   const array = []
+        //   for(let i = 0; i < answer.length; i++) {
+        //     array.push('')
+        //   }
+        //   return array
+        // })()
       })
     })
   }
@@ -57,6 +58,14 @@ class Hangman extends Component {
   }
 
   handleGuess(evt) {
+    /**
+     * newguessed = []
+     * si answer.includes(lalettre)
+     *   answer.split('').foreach(lettre, index)
+     *      if lettre = lalettre
+     *        newguessed[index] = lalettre
+     * this.setstate; guessedWord devient newguessed
+     */
   }
 
   saveResults() {
