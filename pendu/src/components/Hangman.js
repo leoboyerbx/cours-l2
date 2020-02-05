@@ -9,7 +9,7 @@ import step5 from './images/5.jpg';
 import step6 from './images/6.jpg';
 
 const API = 'https://api.github.com';
-const GIST = '';
+const GIST = '02a74370fa1d86e71317ee269a341234';
 const TOKEN = '';
 
 class Hangman extends Component {
@@ -22,11 +22,29 @@ class Hangman extends Component {
 
     this.state = {
       answer: '',
-      mistake: false
+      mistake: false,
+      guessedWord: []
     }
   }
 
   componentDidMount() {
+    fetch(API + '/gists/' + GIST)
+      .then(res => res.json())
+      .then(results => {
+      const words = results.files['words.txt'].content.slice(1, -1).split('\n')
+      const answer = words[Math.floor(Math.random() * words.length)]
+      console.log(answer)
+      this.setState({
+        answer,
+        guessedWord: (() => { // On génère un tableau de chaînes vides de la même taille que le mot
+          const array = []
+          for(let i = 0; i < answer.length; i++) {
+            array.push('')
+          }
+          return array
+        })()
+      })
+    })
   }
 
   async fetchResults() {
@@ -51,6 +69,7 @@ class Hangman extends Component {
   };
 
   render() {
+    console.log(this.state.guessedWord)
     if (this.state.answer === '') {
       return (
         <div className="Hangman">
