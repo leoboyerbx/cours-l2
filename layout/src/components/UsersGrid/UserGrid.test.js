@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
-import App from './App';
+import UsersGrid from './UsersGrid';
+
+import usersTestData from './data/'
 
 let container = null;
 
@@ -16,10 +18,10 @@ afterEach( () => {
   container.remove();
 });
 
-describe('App Layout material', () => {
+describe('Users Grid component', () => {
   it('renders without crashing', () => {
     act(() => {
-      render(<App />, container);
+      render(<UsersGrid />, container);
     })
   });
 })

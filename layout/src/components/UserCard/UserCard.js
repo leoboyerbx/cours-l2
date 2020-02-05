@@ -67,7 +67,7 @@ export default function UserCard (props) {
   }
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} data-testclass="userCard">
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
@@ -94,7 +94,6 @@ export default function UserCard (props) {
           <b>Gender: </b> {capitalize(user.gender)}<br />
           <b>Email: </b> {user.email}<br />
           Created their account {user.registered.age} years ago<br />
-
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

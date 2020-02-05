@@ -1,26 +1,28 @@
 import React from 'react';
 import './App.scss';
-import { makeStyles } from '@material-ui/core/styles'
-import UserCard from './components/UserCard/UserCard';
-import Grid from '@material-ui/core/Grid/Grid'
-import data from './data/user';
+import UsersGrid from './components/UsersGrid/UsersGrid'
+
 
 class App extends React.Component {
 
   constructor(props) {
     super(props)
+    this.apiUrl = props.apiUrl ? props.apiUrl : 'https://randomuser.me/api/?results=50'
+    this.state = {
+      users: []
+    }
+  }
+
+  componentDidMount() {
+    fetch(this.apiUrl).then(res => res.json()).then(data => {
+      this.setState({ users: data.results })
+    })
   }
 
   render () {
     return (
       <div style={{ padding: 20 }}>
-          <Grid container justify="center" spacing={2}>
-            {data.results.map((user, index) => (
-              <Grid key={index} item>
-                <UserCard userData={user} />
-            </Grid>
-            ))}
-        </Grid>
+          <UsersGrid users={this.state.users} />
       </div>
     );
   }
