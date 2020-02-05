@@ -14,10 +14,16 @@ const TOKEN = '';
 
 class Hangman extends Component {
   static defaultProps = {
+    maxWrong: 6
   };
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      answer: '',
+      mistake: false
+    }
   }
 
   componentDidMount() {
