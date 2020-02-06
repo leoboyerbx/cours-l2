@@ -11,9 +11,11 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List'
 import { red } from '@material-ui/core/colors';
-import { Favorite, Share, ExpandMore } from '@material-ui/icons'
+import { Favorite, Share, ExpandMore, Chat, Call, Facebook, Twitter, WhatsApp } from '@material-ui/icons'
 import ActionsPopover from '../ActionsPopover/ActionsPopover'
+import { ListItemText, ListItemIcon, ListItem } from '@material-ui/core';
 
 const capitalize = (s) => {
   if (typeof s !== 'string') return ''
@@ -76,7 +78,20 @@ export default function UserCard (props) {
         }
         action={
           <ActionsPopover>
-            <Typography className={ classes.popoverContent }>Content of the Popover</Typography>
+            <List component="nav" aria-label="user actions menu">
+              <ListItem button>
+                <ListItemIcon>
+                  <Chat></Chat>
+                </ListItemIcon>
+                <ListItemText primary="Send a message" />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                  <Call />
+                </ListItemIcon>
+                <ListItemText primary="Call" />
+              </ListItem>
+            </List>
           </ActionsPopover>
         }
         title={ `${user.name.title} ${user.name.first} ${user.name.last}` }
@@ -108,7 +123,26 @@ export default function UserCard (props) {
             vertical: 'top'
           }
         }>
-          <span id="popover-content"></span>
+        <List component="nav" aria-label="user share menu">
+          <ListItem button>
+            <ListItemIcon>
+              <Facebook></Facebook>
+            </ListItemIcon>
+            <ListItemText primary="Facebook" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <Twitter></Twitter>
+            </ListItemIcon>
+            <ListItemText primary="Twitter" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <WhatsApp></WhatsApp>
+            </ListItemIcon>
+            <ListItemText primary="Whatsapp" />
+          </ListItem>
+        </List>
         </ActionsPopover>
         <IconButton
           className={clsx(classes.expand, {
