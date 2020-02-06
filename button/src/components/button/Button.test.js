@@ -33,7 +33,7 @@ it('renders without crashing', () => {
   );
 });
 
-it("changes CSS class on click", () => {
+it("changes CSS class on click", () => {console.log(console.log(
   act( () => {
     render(<Button></Button>, container);
   });

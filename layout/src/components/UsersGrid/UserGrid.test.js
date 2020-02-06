@@ -4,7 +4,7 @@ import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 import UsersGrid from './UsersGrid';
 
-import usersTestData from './testingData/testUsers'
+import usersTestData from '../../testingData/testUsers'
 
 let container = null;
 
@@ -21,14 +21,13 @@ afterEach( () => {
 describe('Users Grid component', () => {
   it('renders without crashing', () => {
     act(() => {
-      render(<UsersGrid />, container);
+      render(<UsersGrid />, container)
     })
   })
-  it('generates 50 users from data', () => {
-    act(() => {
-      render(<UsersGrid users={usersTestData.result} />, container);
+  it('generates 10 users from data', () => {
+    act( () => {
+      render(<UsersGrid users={usersTestData.results} />, container);
     })
-    console.log(usersTestData)
-    expect(document.querySelectorAll('[data-testclass="userCard"]').length).toBe(50)
+    expect(document.querySelectorAll('[data-testclass="userCard"]').length).toBe(10)
   })
 })

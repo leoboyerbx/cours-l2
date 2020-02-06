@@ -52,7 +52,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function UserCard (props) {
-  const user = props.userData
+  const user = props.userData ? props.userData : null
   const classes = useStyles();
 
   const [expanded, setExpanded] = React.useState(false)
@@ -66,7 +66,7 @@ export default function UserCard (props) {
     setLoved(!loved)
   }
 
-  return (
+  return props.userData ? (
     <Card className={classes.root} data-testclass="userCard">
       <CardHeader
         avatar={
@@ -108,7 +108,7 @@ export default function UserCard (props) {
             vertical: 'top'
           }
         }>
-          Réseaux
+          <span id="popover-content"></span>
         </ActionsPopover>
         <IconButton
           className={clsx(classes.expand, {
@@ -130,5 +130,9 @@ export default function UserCard (props) {
         </CardContent>
       </Collapse>
     </Card>
-  );
+  ) : (
+    <Card className={classes.root} data-testclass="userCard">
+        UserData not specified
+    </Card>
+  )
 }

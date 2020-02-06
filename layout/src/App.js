@@ -7,7 +7,7 @@ class App extends React.Component {
 
   constructor(props) {
     super(props)
-    this.apiUrl = props.apiUrl ? props.apiUrl : 'https://randomuser.me/api/?results=50'
+    this.apiUrl = 'https://randomuser.me/api/?results=50'
     this.state = {
       users: []
     }

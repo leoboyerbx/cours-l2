@@ -19,7 +19,7 @@ export default function ActionsPopover(props) {
   const id = open ? 'simple-popover' : undefined;
 
   return (
-    <div>
+    <div data-testid="actionsPopover">
       <IconButton aria-label="settings" variant="contained" color="primary" aria-describedby={id} variant="contained" color={ props.color ? props.color : "primary" } onClick={handleClick}>
           { props.icon ? props.icon : <MoreVert /> }
         </IconButton>
